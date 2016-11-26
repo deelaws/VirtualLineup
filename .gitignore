@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/VirtualLineup/VirtualLineup/mod_shopper/__pycache__
+/VirtualLineup/VirtualLineup/__pycache__
+/VirtualLineup/vlineup-env/.ptvs
+/VirtualLineup/vlineup-env/Scripts
+/VirtualLineup/vlineup-env/Lib/tcl8.6
