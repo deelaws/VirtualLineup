@@ -245,3 +245,5 @@ ModelManifest.xml
 /VirtualLineup/vlineup-env/.ptvs
 /VirtualLineup/vlineup-env/Scripts
 /VirtualLineup/vlineup-env/Lib/tcl8.6
+/VirtualLineup/VirtualLineup/mod_store/__pycache__
+/VirtualLineup/VirtualLineup/mod_virtualline/__pycache__

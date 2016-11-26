@@ -46,6 +46,30 @@
     <Compile Include="VirtualLineup\mod_shopper\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VirtualLineup\mod_store\controllers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_store\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_store\store_types.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_store\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_virtualline\controllers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_virtualline\line_type.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_virtualline\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VirtualLineup\mod_virtualline\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="VirtualLineup\__init__.py" />
     <Compile Include="VirtualLineup\views.py" />
   </ItemGroup>

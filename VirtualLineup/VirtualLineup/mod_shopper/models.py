@@ -12,7 +12,7 @@ A shopper will enter a virtual line in the store and shop for goods.
 This is essentially the user model.
 '''
 class Shopper(Base):
-    __tablename__ = 'shopper'
+    __tablename__ = 'vshopper'
 
     '''
     Email address will be the username
