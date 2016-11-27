@@ -11,10 +11,9 @@ many different types of lines.
 '''
 class VirtualLine(Base):
     __tablename__ = 'vline'
-    
-    # Foreign key to mod store
-    # Many to One relationship with vstore.
-    # store = 
+
+    # Store id. Foreign key id in VirtualStore class.
+    store_id = db.Column(db.Integer, db.ForeignKey('vstore.id'))
 
     # Line can have a many Virtual Tickets
     # One to many relationship with vtickets
@@ -27,6 +26,17 @@ class VirtualLine(Base):
     # Max capacity represents the maximum amount of non-expired tickets the
     # virtual line can contain. This value should be configurable.
     max_capacity = db.Column(db.Integer, default=5000)
+
+    # Line type.
+    line_type = db.Column(db.Integer, default=None)
+
+    def __init__(self, store, type):
+        store_id = store
+        line_type = type.value
+
+    def __init__(self):
+        pass
+        
 
 '''
 This class abstracts the presence of a user in store line.

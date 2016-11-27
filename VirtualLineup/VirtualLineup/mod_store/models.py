@@ -12,6 +12,8 @@ class VirtualStore(Base):
     street = db.Column(db.String,  nullable=True)
 
     city = db.Column(db.String,  nullable=True)
+
+    province_state = db.Column(db.String,  nullable=True)
     
     country = db.Column(db.String, nullable=True)
 
@@ -22,3 +24,11 @@ class VirtualStore(Base):
 
     # If the store is live, then it is visible to shoppers
     is_live = db.Column(db.Boolean,  nullable=True, default=False)
+
+    # One to Many relationship with VirtualLine
+    lines = db.relationship('VirtualLine', backref='store',
+                            lazy='dynamic')
+
+    def __init__(self, name, zip_code):
+        self.name = name
+        self.zipcode = zip_code
