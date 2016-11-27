@@ -12,11 +12,15 @@ from VirtualLineup import db
 from VirtualLineup.mod_store.models import VirtualStore
 from VirtualLineup.mod_virtualline.models import VirtualLine
 from VirtualLineup.mod_virtualline.line_type import VirtualLineType
+from VirtualLineup.mod_shopper.models import Shopper
 
 store_names = [('Sephora', '94034'),      \
                ('Macy\'s', '94104'),      \
                ('Foot Locker', '93454'),  \
                ('Anthropologie', '94074')]
+
+shoppers = [('jasonbo@gmail.com', 'password', 'Jason', 'Bournce'), \
+            ('jamesbo@hotmail.com', 'password', 'James', 'Bond')]
 
 def recreate_tables():
     print("Dropping all tables")
@@ -35,6 +39,15 @@ def create_sample_stores(session):
     
     session.commit()    
 
+def create_sample_shoppers(session):
+    for sho in shoppers:
+        new_shopper = Shopper(sho[0], sho[1])
+        new_shopper.first_name = sho[2]
+        new_shopper.last_name  = sho[3]
+        session.add(new_shopper)
+    
+    session.commit()
+    
 if __name__ == "__main__":
     print("Setting up dev environment")    
     recreate_tables()
@@ -44,5 +57,5 @@ if __name__ == "__main__":
     session = Session()
     
     create_sample_stores(session)
-
+    create_sample_shoppers(session)
 

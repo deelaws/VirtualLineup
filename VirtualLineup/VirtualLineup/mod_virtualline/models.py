@@ -17,7 +17,8 @@ class VirtualLine(Base):
 
     # Line can have a many Virtual Tickets
     # One to many relationship with vtickets
-    # vector_of_tickets = perhaps this ought to be declared inside VirtualTicket class
+    tickets = db.relationship('VirtualTicket', backref='virtualline',
+                              lazy='dynamic')
 
     # Current capacity represents the amount of non-expired tickets in the
     # virtual line.
@@ -60,7 +61,7 @@ class VirtualTicket(Base):
     expired = db.Column(db.Boolean, default=False)
 
     # The shopper who is the owner of this ticket
-    # shopper = db.relationship
+    shopper_id = db.Column(db.Integer, db.ForeignKey('vshopper.id'))
 
     # The virtual line in which the ticket is used.
-    # store = db.RelationShip
+    line_id = db.Column(db.Integer, db.ForeignKey('vline.id'))

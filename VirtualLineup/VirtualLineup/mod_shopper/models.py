@@ -14,14 +14,10 @@ This is essentially the user model.
 class Shopper(Base):
     __tablename__ = 'vshopper'
 
-    '''
-    Email address will be the username
-    '''
+    #Email address will be the username
     email = db.Column(db.String, unique=True, nullable=False)
 
-    '''
-    Encrypted password for the user.    
-    '''
+    #Encrypted password for the user.
     password = db.Column(db.String, nullable=False)
 
     authenticated = db.Column(db.Boolean, default=False)
@@ -31,15 +27,18 @@ class Shopper(Base):
 
     test_account = db.Column(db.Boolean, default=False)
 
+    # One to Many relationship with VirtualTickets
+    tickets = db.relationship('VirtualTicket', backref='shopper',
+                              lazy='dynamic')
+
     def __init__(self, username, password):
-        """Constructor"""
         self.email = username
         self.set_password(password)
-
+    '''
+    Set's the password for the user.
+    It generates a hash of the password using werkzeug
+    '''
     def set_password(self, password):
-        """Set's the password for the user.
-           It generates a hash of the password using werkzeug
-        """
         print("password is", password)
         self.password = generate_password_hash(password)
 
