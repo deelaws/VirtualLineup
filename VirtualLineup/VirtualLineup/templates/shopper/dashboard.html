@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <ul>
+        {% for store in stores %}
+        <li>
+            <div id="{{store.id}}">
+                {{store.name}}  {{store.zipcode}}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
