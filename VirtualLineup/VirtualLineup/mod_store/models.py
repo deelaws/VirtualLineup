@@ -6,6 +6,7 @@ store_name_max_length = 100
 
 class VirtualStore(Base):
     __tablename__ = 'vstore'
+
     name = db.Column(db.String(store_name_max_length),  nullable=True)
 
     # Store Address

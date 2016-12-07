@@ -35,3 +35,8 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+@app.route('/react')
+def react():
+    """Sample view to setup react"""
+    return "{\"react\": true}"

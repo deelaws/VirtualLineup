@@ -31,6 +31,10 @@ class VirtualLine(Base):
     # Line type.
     line_type = db.Column(db.Integer, default=None)
 
+    # True if the line is open for shoppers to enter.
+    # This may or may not be dependent on store hours.
+    open = db.Column(db.Boolean, default=False)
+
     def __init__(self, store, type):
         store_id = store
         line_type = type.value
@@ -57,8 +61,8 @@ class VirtualTicket(Base):
     # We will always store all the times as UTC standard time.
     service_time = db.Column(db.DateTime,  default=None)
 
-    # If a ticket has gone past its service time, it has expired
-    expired = db.Column(db.Boolean, default=False)
+    # If a ticket has gone past its service time, it is not active
+    active = db.Column(db.Boolean, default=False)
 
     # The shopper who is the owner of this ticket
     shopper_id = db.Column(db.Integer, db.ForeignKey('vshopper.id'))
